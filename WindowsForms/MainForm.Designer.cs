@@ -42,6 +42,7 @@
             this.lbAllPlayers.FormattingEnabled = true;
             resources.ApplyResources(this.lbAllPlayers, "lbAllPlayers");
             this.lbAllPlayers.Name = "lbAllPlayers";
+            this.lbAllPlayers.SelectedIndexChanged += new System.EventHandler(this.lbAllPlayers_SelectedIndexChanged);
             this.lbAllPlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbAllPlayers_DragDrop);
             this.lbAllPlayers.DragEnter += new System.Windows.Forms.DragEventHandler(this.lbAllPlayers_DragEnter);
             this.lbAllPlayers.DragLeave += new System.EventHandler(this.lbAllPlayers_DragLeave);

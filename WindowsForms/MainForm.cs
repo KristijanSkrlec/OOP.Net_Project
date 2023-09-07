@@ -12,13 +12,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Permissions;
 using System.Globalization;
+using WindowsForms.Properties;
 
 namespace WindowsForms
 {
     public partial class MainForm : Form
     {
         private Representation representation = new Representation();
-        private Dictionary<string, string>? playerImageLink = new Dictionary<string, string>();
+        private Dictionary<string, Bitmap>? playerImageLink = new Dictionary<string, Bitmap>();
         private OpenFileDialog ofd = new OpenFileDialog();
         private bool isMen = true;
 
@@ -62,7 +63,29 @@ namespace WindowsForms
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveFavourites();
+            SaveImages();
         }
+
+        private void SaveImages()
+        {
+            try
+            {
+                // Save the initial values to a file
+                using (StreamWriter writer = new StreamWriter(Utilities.Constants.PLAYER_IMG))
+                {
+                    foreach (var player in playerImageLink)
+                    {
+                        writer.WriteLine($"{player.Key}|{player.Value}");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving player images: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void Localize()
         {
             using (StreamReader reader = new StreamReader(Utilities.Constants.INIT_SETTINGS))
@@ -121,7 +144,16 @@ namespace WindowsForms
             {
                 LoadPlayersJSON();
             }
+            SetDefaultImage();
+
         }
+
+        private void SetDefaultImage()
+        {
+            pbPlayer.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbPlayer.Image = Resources.NoImage;
+        }
+
         private void LoadPlayersJSON()
         {
             try
@@ -153,6 +185,7 @@ namespace WindowsForms
                     // Populate the combo box with team names
                     foreach (var item in startingElevens)
                     {
+                        playerImageLink.Add(item.Name, Resources.NoImage);
                         lbAllPlayers.Items.Add(item.Name + " - " + item.ShirtNumber + " - " + item.Position + " - " + (item.Captain ? "Captain" : ""));
                     }
                 }
@@ -196,6 +229,7 @@ namespace WindowsForms
                         // Populate the combo box with team names
                         foreach (var item in startingElevens)
                         {
+                            playerImageLink.Add(item.Name, Resources.NoImage);
                             //lbFavPlayers.Items.Add(item.GetType());
                             lbAllPlayers.Items.Add(item.Name + " - " + item.ShirtNumber + " - " + item.Position + " - " + (item.Captain ? "Captain" : ""));
                         }
@@ -270,9 +304,16 @@ namespace WindowsForms
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 pbPlayer.Image = new Bitmap(ofd.FileName);
+                string selectedPlayerName = lbAllPlayers.SelectedItem.ToString().Split('-')[0].Trim();
+
+                // Check if an image exists for the selected player.
+
+                // Display the player's image in the PictureBox.
+                playerImageLink[selectedPlayerName] = new Bitmap(ofd.FileName);
+                
+
             }
             pbPlayer.SizeMode = PictureBoxSizeMode.StretchImage;
-            //var bmp = new Bitmap();
 
         }
         private void InitOpenFileDialog()
@@ -393,5 +434,33 @@ namespace WindowsForms
         {
 
         }
+
+        private void lbAllPlayers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Check if an item is selected.
+            if (lbAllPlayers.SelectedItem != null)
+            {
+                // Get the selected player's name.
+                string selectedPlayerName = lbAllPlayers.SelectedItem.ToString().Split('-')[0].Trim();
+
+                // Check if an image exists for the selected player.
+                if (playerImageLink.ContainsKey(selectedPlayerName))
+                {
+                    // Display the player's image in the PictureBox.
+                    pbPlayer.Image = playerImageLink[selectedPlayerName];
+                }
+                else
+                {
+                    // If no image is found, display a default image (e.g., NoImage.png).
+                    pbPlayer.Image = new Bitmap(Resources.NoImage);
+                }
+            }
+            else
+            {
+                // If no item is selected, clear the PictureBox.
+                pbPlayer.Image = null;
+            }
+        }
+
     }
 }
