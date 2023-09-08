@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.Security.Permissions;
 using System.Globalization;
 using WindowsForms.Properties;
+using System.Reflection.Metadata;
 
 namespace WindowsForms
 {
@@ -35,7 +36,48 @@ namespace WindowsForms
             LoadFavourites();
             LoadSelectedGender();
             CheckDataSource();
+            LoadImages();
         }
+
+        private void LoadImages()
+        {
+
+            if (File.Exists(Utilities.Constants.PLAYER_IMG))
+            {
+                using (StreamReader reader = new StreamReader(Utilities.Constants.PLAYER_IMG))
+                {
+                     if (reader != null)
+                    {
+                        try
+                        {
+                            // Load the initial values from a file
+                            string[] players = File.ReadAllLines(Utilities.Constants.PLAYER_IMG);
+
+                            foreach (var item in players)
+                            {
+                                string[] parts = item.Split(Utilities.Constants.DEL);
+                                if (parts[1] == string.Empty)
+                                {
+                                    playerImageLink[parts[0]] = new Bitmap(Resources.NoImage);
+
+                                }
+                                else
+                                {
+                                    playerImageLink[parts[0]] = new Bitmap(parts[1]);
+                                }
+
+                            }
+
+                        }
+                        catch (FileNotFoundException ex)
+                        {
+                            MessageBox.Show($"Error loading player images: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
         private void LoadFavourites()
         {
 
@@ -75,7 +117,7 @@ namespace WindowsForms
                 {
                     foreach (var player in playerImageLink)
                     {
-                        writer.WriteLine($"{player.Key}|{player.Value}");
+                        writer.WriteLine($"{player.Key}|{player.Value.Tag}");
                     }
                 }
 
@@ -85,7 +127,6 @@ namespace WindowsForms
                 MessageBox.Show($"Error saving player images: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void Localize()
         {
             using (StreamReader reader = new StreamReader(Utilities.Constants.INIT_SETTINGS))
@@ -145,7 +186,6 @@ namespace WindowsForms
                 LoadPlayersJSON();
             }
             SetDefaultImage();
-
         }
 
         private void SetDefaultImage()
@@ -194,7 +234,7 @@ namespace WindowsForms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading selected country: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error loading selected country JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private async void LoadPlayersAPI()
@@ -205,7 +245,6 @@ namespace WindowsForms
                 string response;
                 try
                 {
-
                     if (isMen)
                     {
                         response = await client.GetStringAsync(Utilities.Constants.MEN_MATCHES_URL);
@@ -240,7 +279,7 @@ namespace WindowsForms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error loading selected country: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Error loading selected country API: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
@@ -310,6 +349,7 @@ namespace WindowsForms
 
                 // Display the player's image in the PictureBox.
                 playerImageLink[selectedPlayerName] = new Bitmap(ofd.FileName);
+                playerImageLink[selectedPlayerName].Tag = ofd.FileName;
                 
 
             }
