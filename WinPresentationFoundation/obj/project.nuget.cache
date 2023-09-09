@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "QMuA46JnyiAozrt5o1KW+zslnQ9eb5v/CiiTk4U9kEOTet9K/IyyF12i6n92bPCOpYfirdgsWeg/si5hPXyIxg==",
+  "dgSpecHash": "66DRoKR3sHZ1me1aG04Ce5LEWkEXY0D26LH/yHQkXzQoxXcYiJV3yTIYqYvUZIjsBtrMiH5E1/o68q4d4Vss3A==",
   "success": true,
   "projectFilePath": "D:\\VisokoUcilisteAlgebra\\IV_Semestar\\OOP_.Net\\Project\\Project_v2\\OOP.Net_Project\\WinPresentationFoundation\\WinPresentationFoundation.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Kristijan\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,0 +1,25 @@
+﻿<Window x:Name="Initial_Settings" x:Class="WinPresentationFoundation.InitSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WinPresentationFoundation"
+        mc:Ignorable="d"
+        Title="Initial Settings" Height="350" Width="300" WindowStartupLocation="CenterScreen" Loaded="Initial_Settings_Loaded">
+    <Grid>
+        <StackPanel Name="spContainer" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+            <Label FontWeight="Bold" Margin="10">Gender</Label>
+            <RadioButton GroupName="gender" Name="rbMale" Margin="10" IsChecked="True">Male</RadioButton>
+            <RadioButton GroupName="gender" Name="rbFemale" Margin="10" IsChecked="False">Female</RadioButton>
+
+            <Label FontWeight="Bold">Language?</Label>
+            <RadioButton GroupName="language" Name="rbCroatian" Margin="10" IsChecked="True">Croatian</RadioButton>
+            <RadioButton GroupName="language" Name="rbEnglish" Margin="10" IsChecked="False">English</RadioButton>
+
+            <ComboBox Name="cbRepresentations" Margin="10"></ComboBox>
+
+            <Button Name="btnContinue" Margin="10" Click="btnMessage_Click" >Continue</Button>
+        </StackPanel>
+       
+    </Grid>
+</Window>
