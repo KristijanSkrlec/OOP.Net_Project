@@ -52,12 +52,12 @@
             // 
             resources.ApplyResources(this.rbFemale, "rbFemale");
             this.rbFemale.Name = "rbFemale";
-            this.rbFemale.TabStop = true;
             this.rbFemale.UseVisualStyleBackColor = true;
             // 
             // rbMale
             // 
             resources.ApplyResources(this.rbMale, "rbMale");
+            this.rbMale.Checked = true;
             this.rbMale.Name = "rbMale";
             this.rbMale.TabStop = true;
             this.rbMale.UseVisualStyleBackColor = true;
@@ -74,12 +74,12 @@
             // 
             resources.ApplyResources(this.rbEnglish, "rbEnglish");
             this.rbEnglish.Name = "rbEnglish";
-            this.rbEnglish.TabStop = true;
             this.rbEnglish.UseVisualStyleBackColor = true;
             // 
             // rbCroatian
             // 
             resources.ApplyResources(this.rbCroatian, "rbCroatian");
+            this.rbCroatian.Checked = true;
             this.rbCroatian.Name = "rbCroatian";
             this.rbCroatian.TabStop = true;
             this.rbCroatian.UseVisualStyleBackColor = true;
@@ -89,6 +89,7 @@
             resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.Name = "btnSave";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // SettingsForm
             // 
@@ -99,6 +100,7 @@
             this.Controls.Add(this.gbGender);
             this.Name = "SettingsForm";
             this.Load += new System.EventHandler(this.SettingsForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SettingsForm_KeyDown);
             this.gbGender.ResumeLayout(false);
             this.gbGender.PerformLayout();
             this.gbLanguage.ResumeLayout(false);

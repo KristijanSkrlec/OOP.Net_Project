@@ -43,20 +43,35 @@ namespace WindowsForms
             SaveImages();
             CloseCancel(e);
         }
-
         public static void CloseCancel(FormClosingEventArgs e)
         {
-            const string message = "Are you sure that you want to exit?";
-            const string caption = "Exit Application";
-            var result = MessageBox.Show(message, caption,
-                              MessageBoxButtons.YesNo,
-                              MessageBoxIcon.Question);
+            if (Thread.CurrentThread.CurrentCulture.Name == Utilities.Constants.HR)
+            {
+                const string message = "Stvarno zelite napustiti aplikaciju?";
+                const string caption = "Zatvaranje Aplikcaije";
+                var result = MessageBox.Show(message, caption,
+                                              MessageBoxButtons.YesNo,
+                                              MessageBoxIcon.Question);
 
-            e.Cancel = (result == DialogResult.No);
-            if (result == DialogResult.Yes)
-                Environment.Exit(0);
+                e.Cancel = (result == DialogResult.No);
+                if (result == DialogResult.Yes)
+                    Environment.Exit(0);
+            }
+            else
+            {
+                const string message = "Are you sure that you want to exit?";
+                const string caption = "Exit Application";
+                var result = MessageBox.Show(message, caption,
+                                  MessageBoxButtons.YesNo,
+                                  MessageBoxIcon.Question);
+
+                e.Cancel = (result == DialogResult.No);
+                if (result == DialogResult.Yes)
+                    Environment.Exit(0);
+
+            }
+
         }
-
         private void LoadImages()
         {
 
@@ -529,15 +544,13 @@ namespace WindowsForms
                 pbPlayer.Image = null;
             }
         }
-
         private void btnSettings_Click(object sender, EventArgs e)
         {
             ShowForm(new SettingsForm());
         }
-
         private void btnRanking_Click(object sender, EventArgs e)
         {
-            ShowForm(new RankingForm());
+            ShowForm(new Rankings());
         }
     }
 }

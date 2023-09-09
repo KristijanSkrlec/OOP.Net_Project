@@ -118,28 +118,50 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbFavPlayers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 49</value>
+  <data name="lbRepresentation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 37</value>
   </data>
-  <data name="lbInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 15</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lbRepInfo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="lbInfo.Text" xml:space="preserve">
-    <value>Dohvacanje Podataka</value>
+  <data name="lbRepInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>68, 9</value>
+  </data>
+  <data name="lbRepInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 15</value>
+  </data>
+  <data name="lbRepInfo.Text" xml:space="preserve">
+    <value>Odabrana reprezentacija: </value>
   </data>
   <data name="pbPlayer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>360, 82</value>
+    <value>113, 400</value>
   </data>
-  <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>497, 326</value>
+  <data name="btnRankYellow.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 469</value>
   </data>
-  <data name="btnSettings.Text" xml:space="preserve">
-    <value>Postavke</value>
+  <data name="btnRankYellow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 65</value>
+  </data>
+  <data name="btnRankYellow.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnRankGoals.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 400</value>
+  </data>
+  <data name="btnRankGoals.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 65</value>
+  </data>
+  <data name="btnRankGoals.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Glavni Meni</value>
+    <value>Rangiranja</value>
   </data>
-  <data name="btnRanking.Text" xml:space="preserve">
-    <value>Rangiranje</value>
+  <data name="btnRankGoals.Text" xml:space="preserve">
+    <value>Sortiraj Po Zabijenim Golovima</value>
+  </data>
+  <data name="btnRankYellow.Text" xml:space="preserve">
+    <value>Sortiraj Po Zutim Kartonima</value>
   </data>
 </root>

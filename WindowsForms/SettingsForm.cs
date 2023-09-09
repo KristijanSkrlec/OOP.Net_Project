@@ -23,12 +23,13 @@ namespace WindowsForms
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             CheckLanguage();
+            this.KeyPreview = true;
         }
 
         private void CheckLanguage()
         {
             string[] strings = File.ReadAllLines(Utilities.Constants.INIT_SETTINGS);
-            if (bool.Parse(strings[1]))
+            if (!bool.Parse(strings[1]))
             {
                 SetCulture(Utilities.Constants.HR);
             }
@@ -43,14 +44,35 @@ namespace WindowsForms
             CultureInfo culture = new CultureInfo(language);
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
-            foreach (Control c in this.Controls)
-            {
-                ComponentResourceManager resources = new ComponentResourceManager(typeof(SettingsForm));
-                resources.ApplyResources(c, c.Name, new CultureInfo(language));
-            }
             this.Controls.Clear();
             InitializeComponent();
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void SettingsForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SaveData();
+                btnSave.PerformClick();
+                MessageBox.Show("Saved Changes");
+                this.Close();
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                MessageBox.Show("Discarded Changes");
+                this.Close();
+            }
+        }
+
+        private void SaveData()
+        {
+            //throw new NotImplementedException();
+        }
     }
 }
