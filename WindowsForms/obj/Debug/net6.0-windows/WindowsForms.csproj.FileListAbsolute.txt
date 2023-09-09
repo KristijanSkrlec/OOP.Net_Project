@@ -54,3 +54,5 @@ D:\VisokoUcilisteAlgebra\IV_Semestar\OOP_.Net\Project\Project_v2\OOP.Net_Project
 D:\VisokoUcilisteAlgebra\IV_Semestar\OOP_.Net\Project\Project_v2\OOP.Net_Project\WindowsForms\obj\Debug\net6.0-windows\WindowsForms.pdb
 D:\VisokoUcilisteAlgebra\IV_Semestar\OOP_.Net\Project\Project_v2\OOP.Net_Project\WindowsForms\obj\Debug\net6.0-windows\WindowsForms.genruntimeconfig.cache
 D:\VisokoUcilisteAlgebra\IV_Semestar\OOP_.Net\Project\Project_v2\OOP.Net_Project\WindowsForms\obj\Debug\net6.0-windows\ref\WindowsForms.dll
+D:\VisokoUcilisteAlgebra\IV_Semestar\OOP_.Net\Project\Project_v2\OOP.Net_Project\WindowsForms\obj\Debug\net6.0-windows\WindowsForms.RankingForm.resources
+D:\VisokoUcilisteAlgebra\IV_Semestar\OOP_.Net\Project\Project_v2\OOP.Net_Project\WindowsForms\obj\Debug\net6.0-windows\WindowsForms.SettingsForm.resources

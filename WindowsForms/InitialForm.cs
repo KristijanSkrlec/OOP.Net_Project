@@ -1,6 +1,7 @@
 using DataAccessLayer.Models;
 using System.ComponentModel;
 using System.Configuration;
+using System.DirectoryServices.ActiveDirectory;
 using System.Globalization;
 using System.IO;
 
@@ -11,8 +12,7 @@ namespace WindowsForms
         public InitialForm()
         {
             InitializeComponent();
-        }
-
+        } 
         private void InitialForm_Load(object sender, EventArgs e)
         {
             LoadChoices();

@@ -36,7 +36,25 @@ namespace WindowsForms
             LoadFavourites();
             LoadSelectedGender();
             CheckDataSource();
-            //LoadImages();
+        }
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveFavourites();
+            SaveImages();
+            CloseCancel(e);
+        }
+
+        public static void CloseCancel(FormClosingEventArgs e)
+        {
+            const string message = "Are you sure that you want to exit?";
+            const string caption = "Exit Application";
+            var result = MessageBox.Show(message, caption,
+                              MessageBoxButtons.YesNo,
+                              MessageBoxIcon.Question);
+
+            e.Cancel = (result == DialogResult.No);
+            if (result == DialogResult.Yes)
+                Environment.Exit(0);
         }
 
         private void LoadImages()
@@ -46,7 +64,7 @@ namespace WindowsForms
             {
                 using (StreamReader reader = new StreamReader(Utilities.Constants.PLAYER_IMG))
                 {
-                     if (reader != null)
+                    if (reader != null)
                     {
                         try
                         {
@@ -74,7 +92,6 @@ namespace WindowsForms
                 }
             }
         }
-
         private void LoadFavourites()
         {
 
@@ -97,14 +114,8 @@ namespace WindowsForms
                     MessageBox.Show($"Error loading favourite players: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-           
-        }
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            SaveFavourites();
-            SaveImages();
-        }
 
+        }
         private void SaveImages()
         {
             try
@@ -184,13 +195,11 @@ namespace WindowsForms
             }
             SetDefaultImage();
         }
-
         private void SetDefaultImage()
         {
             pbPlayer.SizeMode = PictureBoxSizeMode.StretchImage;
             pbPlayer.Image = Resources.NoImage;
         }
-
         private void LoadPlayersJSON()
         {
             try
@@ -198,7 +207,7 @@ namespace WindowsForms
                 string jsonFilePath;
                 if (isMen)
                 {
-                    jsonFilePath = Utilities.Constants.MEN_MATCHES_JSON; 
+                    jsonFilePath = Utilities.Constants.MEN_MATCHES_JSON;
                 }
                 else
                 {
@@ -266,8 +275,13 @@ namespace WindowsForms
                         // Populate the combo box with team names
                         foreach (var item in startingElevens)
                         {
-                            playerImageLink.Add(item.Name, Resources.NoImage);
-                            lbAllPlayers.Items.Add(item.Name + " - " + item.ShirtNumber + " - " + item.Position + " - " + (item.Captain ? "Captain" : ""));
+                            string player = item.Name + " - " + item.ShirtNumber + " - " + item.Position + " - " + (item.Captain ? "Captain" : "");
+                            if (!lbFavPlayers.Items.Contains(player + " *"))
+                            {
+                                playerImageLink.Add(item.Name, Resources.NoImage);
+                                lbAllPlayers.Items.Add(player);
+                            }
+                           
                         }
                     }
 
@@ -347,7 +361,7 @@ namespace WindowsForms
                 // Display the player's image in the PictureBox.
                 playerImageLink[selectedPlayerName] = new Bitmap(ofd.FileName);
                 playerImageLink[selectedPlayerName].Tag = ofd.FileName;
-                
+
 
             }
             pbPlayer.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -366,7 +380,19 @@ namespace WindowsForms
             ofd.InitialDirectory = downloadFolder;
 
         }
-        ////////////////////////////////////////////////////////////////////////////////
+        private void ShowForm(Form form)
+        {
+            Thread thread = new Thread(OpenNewForm);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+
+            void OpenNewForm()
+            {
+                Application.Run(form);
+            }
+
+            this.Close();
+        }
         private void lbAllPlayers_DragDrop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Text))
@@ -383,7 +409,6 @@ namespace WindowsForms
                 lbFavPlayers.Items.Remove(e.Data.GetData(DataFormats.Text));
             }
         }
-
         private void lbAllPlayers_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Text))
@@ -395,7 +420,6 @@ namespace WindowsForms
                 e.Effect = DragDropEffects.None;
             }
         }
-
         private void lbAllPlayers_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -414,7 +438,6 @@ namespace WindowsForms
                 AddImage();
             }
         }
-
         private void lbFavPlayers_DragDrop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Text))
@@ -436,7 +459,6 @@ namespace WindowsForms
                 lbAllPlayers.Items.Remove(e.Data.GetData(DataFormats.Text));
             }
         }
-
         private void lbFavPlayers_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Text))
@@ -448,7 +470,6 @@ namespace WindowsForms
                 e.Effect = DragDropEffects.None;
             }
         }
-
         private void lbFavPlayers_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -466,12 +487,10 @@ namespace WindowsForms
                 // Handle right-click behavior, if needed
             }
         }
-
         private void lbAllPlayers_DragLeave(object sender, EventArgs e)
         {
 
         }
-
         private void lbAllPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Check if an item is selected.
@@ -499,5 +518,14 @@ namespace WindowsForms
             }
         }
 
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            ShowForm(new SettingsForm());
+        }
+
+        private void btnRanking_Click(object sender, EventArgs e)
+        {
+            ShowForm(new RankingForm());
+        }
     }
 }

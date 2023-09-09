@@ -81,7 +81,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbAllPlayers.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="lbFavPlayers.ItemHeight" type="System.Int32, mscorlib">
     <value>15</value>
@@ -105,7 +105,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbFavPlayers.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="lbInfo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -132,7 +132,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbInfo.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="pbPlayer.Location" type="System.Drawing.Point, System.Drawing">
     <value>360, 82</value>
@@ -153,7 +153,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pbPlayer.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>497, 326</value>
@@ -177,6 +177,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnRanking.Location" type="System.Drawing.Point, System.Drawing">
+    <value>416, 326</value>
+  </data>
+  <data name="btnRanking.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnRanking.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnRanking.Text" xml:space="preserve">
+    <value>Rankings</value>
+  </data>
+  <data name="&gt;&gt;btnRanking.Name" xml:space="preserve">
+    <value>btnRanking</value>
+  </data>
+  <data name="&gt;&gt;btnRanking.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRanking.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnRanking.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

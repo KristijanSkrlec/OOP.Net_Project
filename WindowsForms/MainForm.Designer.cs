@@ -34,6 +34,7 @@
             this.lbInfo = new System.Windows.Forms.Label();
             this.pbPlayer = new System.Windows.Forms.PictureBox();
             this.btnSettings = new System.Windows.Forms.Button();
+            this.btnRanking = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,11 +76,20 @@
             resources.ApplyResources(this.btnSettings, "btnSettings");
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
+            // btnRanking
+            // 
+            resources.ApplyResources(this.btnRanking, "btnRanking");
+            this.btnRanking.Name = "btnRanking";
+            this.btnRanking.UseVisualStyleBackColor = true;
+            this.btnRanking.Click += new System.EventHandler(this.btnRanking_Click);
             // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnRanking);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.pbPlayer);
             this.Controls.Add(this.lbInfo);
@@ -101,5 +111,6 @@
         private Label lbInfo;
         private PictureBox pbPlayer;
         private Button btnSettings;
+        private Button btnRanking;
     }
 }

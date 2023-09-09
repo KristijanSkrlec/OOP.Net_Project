@@ -1,5 +1,3 @@
-Danijel SUBASIC|
-Sime VRSALJKO|
 Ivan STRINIC|
 Ivan PERISIC|
 Dejan LOVREN|
@@ -9,3 +7,5 @@ Luka MODRIC|
 Mario MANDZUKIC|
 Ante REBIC|
 Domagoj VIDA|
+Danijel SUBASIC|
+Sime VRSALJKO|
