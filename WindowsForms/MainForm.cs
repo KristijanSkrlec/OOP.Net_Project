@@ -36,7 +36,7 @@ namespace WindowsForms
             LoadFavourites();
             LoadSelectedGender();
             CheckDataSource();
-            LoadImages();
+            //LoadImages();
         }
 
         private void LoadImages()
@@ -56,18 +56,15 @@ namespace WindowsForms
                             foreach (var item in players)
                             {
                                 string[] parts = item.Split(Utilities.Constants.DEL);
-                                if (parts[1] == string.Empty)
+                                if (parts[1] == String.Empty)
                                 {
                                     playerImageLink[parts[0]] = new Bitmap(Resources.NoImage);
-
                                 }
                                 else
                                 {
                                     playerImageLink[parts[0]] = new Bitmap(parts[1]);
                                 }
-
                             }
-
                         }
                         catch (FileNotFoundException ex)
                         {
@@ -236,6 +233,7 @@ namespace WindowsForms
             {
                 MessageBox.Show($"Error loading selected country JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            LoadImages();
         }
         private async void LoadPlayersAPI()
         {
@@ -269,7 +267,6 @@ namespace WindowsForms
                         foreach (var item in startingElevens)
                         {
                             playerImageLink.Add(item.Name, Resources.NoImage);
-                            //lbFavPlayers.Items.Add(item.GetType());
                             lbAllPlayers.Items.Add(item.Name + " - " + item.ShirtNumber + " - " + item.Position + " - " + (item.Captain ? "Captain" : ""));
                         }
                     }
@@ -281,7 +278,7 @@ namespace WindowsForms
                 {
                     MessageBox.Show($"Error loading selected country API: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
+                LoadImages();
             }
         }
         private void LoadSelectedCountry()
