@@ -144,7 +144,7 @@ namespace WindowsForms
 
                 if (line != null)
                 {
-                    if (bool.Parse(parts[1]))
+                    if (!bool.Parse(parts[1]))
                     {
                         SetCulture(Utilities.Constants.HR);
                     }
@@ -362,6 +362,18 @@ namespace WindowsForms
                 playerImageLink[selectedPlayerName] = new Bitmap(ofd.FileName);
                 playerImageLink[selectedPlayerName].Tag = ofd.FileName;
 
+                ////////////
+                try
+                {
+                    string iName = ofd.SafeFileName;   // <---
+                    string filepath = ofd.FileName;    // <---
+                    File.Copy(filepath, Utilities.Constants.IMAGES_PATH + iName); // <---
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error copying player image to folder: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
 
             }
             pbPlayer.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -391,7 +403,7 @@ namespace WindowsForms
                 Application.Run(form);
             }
 
-            this.Close();
+            //this.Close();
         }
         private void lbAllPlayers_DragDrop(object sender, DragEventArgs e)
         {

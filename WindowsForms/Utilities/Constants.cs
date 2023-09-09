@@ -17,6 +17,8 @@ namespace WindowsForms.Utilities
        public static string FAV_PLAYERS = @"..\..\..\ConfigurationFiles\FavPlayers.txt";
        public static string PLAYER_IMG = @"..\..\..\ConfigurationFiles\PlayerImg.txt";
 
+       public static string IMAGES_PATH = @"..\..\..\PlayerImages\";
+
        public static string MEN_TEAMS_URL = "https://worldcup-vua.nullbit.hr/men/teams";
        public static string WOMEN_TEAMS_URL = "https://worldcup-vua.nullbit.hr/women/teams";
        

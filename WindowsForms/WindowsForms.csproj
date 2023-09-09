@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <Folder Include="ConfigurationFiles\" />
+    <Folder Include="PlayerImages\" />
   </ItemGroup>
 
   <ItemGroup>
