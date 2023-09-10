@@ -32,12 +32,24 @@ namespace WinPresentationFoundation
         private void btnMessage_Click(object sender, RoutedEventArgs e)
         {
             SaveChoices();
-            ShowWindow(new Window());
+            ShowWindow(new MainWindow());
         }
 
-        private void ShowWindow(Window window)
+        private void ShowWindow(MainWindow mainWindow)
         {
-            
+            Thread thread = new Thread(OpenNewForm);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+            this.Close();
+        }
+
+        private void OpenNewForm()
+        {
+            Application.Current.Dispatcher.Invoke((Action)delegate
+            {
+                MainWindow mainWindow = new MainWindow(); // Replace with the name of your new form
+                mainWindow.Show();
+            });
         }
 
         private void SaveChoices()
@@ -57,7 +69,7 @@ namespace WinPresentationFoundation
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show($"Error saving initial data:");
             }
@@ -102,7 +114,7 @@ namespace WinPresentationFoundation
                 cbRepresentations.SelectedIndex = 0;
                 //lbInfo.Text = string.Empty;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show($"Error fetching JSON data:");
             }
@@ -128,7 +140,7 @@ namespace WinPresentationFoundation
                     //lbInfo.Text = string.Empty;
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show($"Error fetching API data:");
                 }
@@ -145,7 +157,7 @@ namespace WinPresentationFoundation
             else
             {
                 SetValues();
-                //ShowWindow(new MainWindow());
+                ShowWindow(new MainWindow());
             }
         }
 
@@ -177,26 +189,21 @@ namespace WinPresentationFoundation
 
                         rbEnglish.IsChecked = bool.Parse(values[1]);
                         rbCroatian.IsChecked = !rbEnglish.IsChecked;
-
                     }
 
                 }
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
                 MessageBox.Show($"Error loading initial values");
             }
         }
 
-        private void SetCulture(string language)
+        private void SetCulture(string culture)
         {
-            CultureInfo culture = new CultureInfo(language);
-            Thread.CurrentThread.CurrentCulture = culture;
-            Thread.CurrentThread.CurrentUICulture = culture;
-            spContainer.Children.Clear();
-            InitializeComponent();
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
         }
-
         private void SetDefaults()
         {
             SetCulture(Utilities.Constants.EN);

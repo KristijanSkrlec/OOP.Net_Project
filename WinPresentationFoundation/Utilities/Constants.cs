@@ -30,8 +30,8 @@ namespace WinPresentationFoundation.Utilities
         public static string MEN_MATCHES_JSON = @"..\..\..\..\DataAccessLayer\JSON\men\matches.json";
         public static string WOMEN_MATCHES_JSON = @"..\..\..\..\DataAccessLayer\JSON\women\matches.json";
 
-        public static string HR = "hr-HR";
-        public static string EN = "en-US";
+        public const string HR = "hr";
+        public const string EN = "en";
 
         public static char DEL = '|';
 

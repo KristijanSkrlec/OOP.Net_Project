@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WinPresentationFoundation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Main Menu" Height="400" Width="600" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <!--<RowDefinition Height="2*" />-->
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <ListBox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" Name="lbAllPlayers"> </ListBox>
+        <ListBox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Height="65" Width="215" Name="lbFavPlayers"> </ListBox>
+
+        <Label Name="lbInfo" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Red" Grid.Column="0" Grid.Row="2">Fetching Data</Label>
+
+        <Image Name="pbPlayer" Grid.Row="1" Grid.Column="1"></Image>
+
+        <Button Name="btnRankings" Grid.Row="2" Grid.Column="2" Height="50" Width="75" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Left" Click="btnRankings_Click">Rankings</Button>
+        <Button Name="btnSettings" Grid.Row="2" Grid.Column="2" Height="50" Width="75" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Right" Click="btnSettings_Click">Settings</Button>
         
     </Grid>
 </Window>
