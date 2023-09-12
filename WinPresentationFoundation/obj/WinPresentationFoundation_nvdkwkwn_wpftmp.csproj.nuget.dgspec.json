@@ -1,0 +1,147 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\VisokoUcilisteAlgebra\\IV_Semestar\\OOP_.Net\\Project\\Project_v2\\OOP.Net_Project\\WinPresentationFoundation\\WinPresentationFoundation.csproj": {}
+  },
+  "projects": {
+    "D:\\VisokoUcilisteAlgebra\\IV_Semestar\\OOP_.Net\\Project\\Project_v2\\OOP.Net_Project\\DataAccessLayer\\DataAccessLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\VisokoUcilisteAlgebra\\IV_Semestar\\OOP_.Net\\Project\\Project_v2\\OOP.Net_Project\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectName": "DataAccessLayer",
+        "projectPath": "D:\\VisokoUcilisteAlgebra\\IV_Semestar\\OOP_.Net\\Project\\Project_v2\\OOP.Net_Project\\DataAccessLayer\\DataAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\Kristijan\\.nuget\\packages\\",
+        "outputPath": "D:\\VisokoUcilisteAlgebra\\IV_Semestar\\OOP_.Net\\Project\\Project_v2\\OOP.Net_Project\\DataAccessLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\ApplicationInstall\\VisualStudio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Kristijan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\VisokoUcilisteAlgebra\\IV_Semestar\\OOP_.Net\\Project\\Project_v2\\OOP.Net_Project\\WinPresentationFoundation\\WinPresentationFoundation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\VisokoUcilisteAlgebra\\IV_Semestar\\OOP_.Net\\Project\\Project_v2\\OOP.Net_Project\\WinPresentationFoundation\\WinPresentationFoundation.csproj",
+        "projectName": "WinPresentationFoundation",
+        "projectPath": "D:\\VisokoUcilisteAlgebra\\IV_Semestar\\OOP_.Net\\Project\\Project_v2\\OOP.Net_Project\\WinPresentationFoundation\\WinPresentationFoundation.csproj",
+        "packagesPath": "C:\\Users\\Kristijan\\.nuget\\packages\\",
+        "outputPath": "D:\\VisokoUcilisteAlgebra\\IV_Semestar\\OOP_.Net\\Project\\Project_v2\\OOP.Net_Project\\WinPresentationFoundation\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\ApplicationInstall\\VisualStudio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Kristijan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {
+              "D:\\VisokoUcilisteAlgebra\\IV_Semestar\\OOP_.Net\\Project\\Project_v2\\OOP.Net_Project\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "D:\\VisokoUcilisteAlgebra\\IV_Semestar\\OOP_.Net\\Project\\Project_v2\\OOP.Net_Project\\DataAccessLayer\\DataAccessLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

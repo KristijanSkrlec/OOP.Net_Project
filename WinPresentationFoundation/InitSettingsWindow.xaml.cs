@@ -155,6 +155,7 @@ namespace WinPresentationFoundation
 
         private void LoadChoices()
         {
+            /*TODO, LOAD FROM WINFORMS FILE*/
             cbResolution.Items.Add("600x400");
             cbResolution.Items.Add("1280x720");
             cbResolution.Items.Add("1920x1080");

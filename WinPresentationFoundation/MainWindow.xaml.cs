@@ -247,6 +247,58 @@ namespace WinPresentationFoundation
             }
         }
 
+        private void ShowRankingsWindow(RankingWindow rankingWindow)
+        {
+            Thread thread = new Thread(OpenNewRankingsForm);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+            //this.Close();
+        }
+
+        private void OpenNewRankingsForm()
+        {
+            System.Windows.Application.Current.Dispatcher.Invoke((Action)delegate
+            {
+                RankingWindow rankingWindow = new RankingWindow();
+                rankingWindow.Show();
+            });
+        }
+
+        private void ShowSettingsWindow(SettingsWindow settingsWindow)
+        {
+            Thread thread = new Thread(OpenNewSettingsForm);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+            //this.Close();
+        }
+
+        private void OpenNewSettingsForm()
+        {
+            System.Windows.Application.Current.Dispatcher.Invoke((Action)delegate
+            {
+                SettingsWindow settingsWindow = new SettingsWindow();
+                settingsWindow.Show();
+            });
+        }
+
+        private void ShowLineupsWindow(LineupsWindow lineupsWindow)
+        {
+            Thread thread = new Thread(OpenNewLineupsWindow);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+            //this.Close();
+        }
+
+        private void OpenNewLineupsWindow()
+        {
+            System.Windows.Application.Current.Dispatcher.Invoke((Action)delegate
+            {
+                LineupsWindow lineupsWindow = new LineupsWindow();
+                lineupsWindow.Show();
+            });
+        }
+
+
         private void LoadSelectedCountry()
         {
             using (StreamReader reader = new StreamReader(Utilities.Constants.INIT_COUNTRY))
@@ -305,11 +357,13 @@ namespace WinPresentationFoundation
 
         private void btnRankings_Click(object sender, RoutedEventArgs e)
         {
+            ShowRankingsWindow(new RankingWindow());
 
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
+            ShowSettingsWindow(new SettingsWindow());
 
         }
 
@@ -320,7 +374,7 @@ namespace WinPresentationFoundation
 
         private void btnLineups_Click(object sender, RoutedEventArgs e)
         {
-
+            ShowLineupsWindow(new LineupsWindow());
         }
 
         private void lbAllPlayers_DragEnter(object sender, DragEventArgs e)
