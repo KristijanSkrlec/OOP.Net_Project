@@ -1,0 +1,34 @@
+﻿<Window x:Class="WinPresentationFoundation.RankingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WinPresentationFoundation"
+        mc:Ignorable="d"
+        Title="Rankings" Height="600" Width="400" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Label Name="lbRepInfo" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">Selected representation:</Label>
+        <ListBox Grid.Row="1" Grid.ColumnSpan="2" Name="lbRepresentation"></ListBox>
+        <Label Name="lbInfo" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Foreground="Red">Fetching Data</Label>
+        <ListBox Grid.Row="3" Grid.ColumnSpan="2" Name="lbPlayers"></ListBox>
+        <Button Name="btnRankGoals" Grid.Row="4" Height="45" Width="150" VerticalAlignment="Top" Margin="25" Click="btnRankGoals_Click">Rank By Goals Scored</Button>
+        <Button Name="btnRankYellow" Grid.Row="4" Height="45" Width="150" VerticalAlignment="Bottom" Margin="25" Click="btnRankYellow_Click">Rank By Yellow Cards</Button>
+
+        <Image Name="pbPlayer" Grid.Row="4" Grid.Column="1" Margin="20" Stretch="Uniform" Source="Resources/NoImage.png"></Image>
+
+
+    </Grid>
+</Window>

@@ -312,5 +312,137 @@ namespace WinPresentationFoundation
         {
 
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Environment.Exit(1);
+        }
+
+        private void btnLineups_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void lbAllPlayers_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Text))
+            {
+                e.Effects = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effects = DragDropEffects.None;
+            }
+        }
+
+        private void lbAllPlayers_DragLeave(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void lbAllPlayers_DragOver(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void lbAllPlayers_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Text))
+            {
+                string draggedItem = e.Data.GetData(DataFormats.Text).ToString().Substring(0, e.Data.GetData(DataFormats.Text).ToString().Length - 2);
+
+                // Check if the item is not already in lbAllPlayers
+                if (!lbAllPlayers.Items.Contains(draggedItem))
+                {
+                    lbAllPlayers.Items.Add(draggedItem);
+                }
+
+                // Remove the item from lbFavPlayers
+                lbFavPlayers.Items.Remove(e.Data.GetData(DataFormats.Text));
+            }
+        }
+
+        private void lbAllPlayers_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                if (lbAllPlayers.SelectedItem != null)
+                {
+                    // Set the selected index to the currently selected item
+                    lbAllPlayers.SelectedIndex = lbAllPlayers.Items.IndexOf(lbAllPlayers.SelectedItem);
+                    // Start drag and drop operation
+                    //lbAllPlayers.DoDragDrop(lbAllPlayers.SelectedItem.ToString(), DragDropEffects.Copy);
+                    DragDrop.DoDragDrop(lbAllPlayers, lbAllPlayers.SelectedItem.ToString(), DragDropEffects.Copy);
+                }
+            }
+            else if (e.ChangedButton == MouseButton.Right)
+            {
+                // Handle right-click behavior, if needed
+                //AddImage();
+            }
+        }
+
+        private void lbFavPlayers_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Text))
+            {
+                e.Effects = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effects = DragDropEffects.None;
+            }
+        }
+
+        private void lbFavPlayers_DragLeave(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void lbFavPlayers_DragOver(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void lbFavPlayers_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Text))
+            {
+                if (lbFavPlayers.Items.Count == 3)
+                {
+                    MessageBox.Show("Maximum amount of players added.");
+                    return;
+                }
+
+                // Check if the item is not already in lbFavPlayers
+                string draggedItem = e.Data.GetData(DataFormats.Text).ToString();
+                if (!lbFavPlayers.Items.Contains(draggedItem))
+                {
+                    lbFavPlayers.Items.Add(draggedItem + " *");
+                }
+
+                // Remove the item from lbAllPlayers
+                lbAllPlayers.Items.Remove(e.Data.GetData(DataFormats.Text));
+            }
+        }
+
+        private void lbFavPlayers_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                if (lbFavPlayers.SelectedItem != null)
+                {
+                    // Set the selected index to the currently selected item
+                    lbFavPlayers.SelectedIndex = lbFavPlayers.Items.IndexOf(lbFavPlayers.SelectedItem);
+                    // Start drag and drop operation
+                    //lbFavPlayers.DoDragDrop(lbFavPlayers.SelectedItem.ToString(), DragDropEffects.Copy);
+                    DragDrop.DoDragDrop(lbFavPlayers, lbFavPlayers.SelectedItem.ToString(), DragDropEffects.Copy);
+                }
+            }
+            else if (e.ChangedButton == MouseButton.Right)
+            {
+                // Handle right-click behavior, if needed
+            }
+        }
     }
 }

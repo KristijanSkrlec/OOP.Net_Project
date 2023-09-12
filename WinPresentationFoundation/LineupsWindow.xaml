@@ -1,0 +1,14 @@
+﻿<Window x:Class="WinPresentationFoundation.LineupsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WinPresentationFoundation"
+        mc:Ignorable="d"
+        Title="Lineups" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/FootbalField.jpg"/>
+        </Grid.Background>
+    </Grid>
+</Window>

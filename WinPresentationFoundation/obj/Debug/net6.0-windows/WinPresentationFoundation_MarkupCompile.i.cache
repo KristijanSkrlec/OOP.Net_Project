@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\VisokoUcilisteAlgebra\IV_Semestar\OOP_.Net\Project\Project_v2\OOP.Net_Project\WinPresentationFoundation\App.xaml
-2-667012501
+51880884464
 
-7-203105482
+10-725603626
 197338080018
-InitSettingsWindow.xaml;MainWindow.xaml;
+InitSettingsWindow.xaml;LineupsWindow.xaml;MainWindow.xaml;RankingWindow.xaml;SettingsWindow.xaml;
 
-True
+False
 

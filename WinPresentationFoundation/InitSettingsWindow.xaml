@@ -17,8 +17,9 @@
             <RadioButton GroupName="language" Name="rbEnglish" Margin="10" IsChecked="False">English</RadioButton>
 
             <ComboBox Name="cbRepresentations" Margin="10"></ComboBox>
-
-            <Button Name="btnContinue" Margin="10" Click="btnMessage_Click" >Continue</Button>
+            <ComboBox Name="cbResolution" Margin="10"></ComboBox>
+            
+            <Button Name="btnContinue" Margin="10" Click="btnContinue_Click" >Continue</Button>
         </StackPanel>
        
     </Grid>

@@ -29,10 +29,16 @@ namespace WinPresentationFoundation
             InitializeComponent();
         }
 
-        private void btnMessage_Click(object sender, RoutedEventArgs e)
+        private void btnContinue_Click(object sender, RoutedEventArgs e)
         {
             SaveChoices();
+            SetResolution();
             ShowWindow(new MainWindow());
+        }
+
+        private void SetResolution()
+        {
+            
         }
 
         private void ShowWindow(MainWindow mainWindow)
@@ -149,6 +155,9 @@ namespace WinPresentationFoundation
 
         private void LoadChoices()
         {
+            cbResolution.Items.Add("600x400");
+            cbResolution.Items.Add("1280x720");
+            cbResolution.Items.Add("1920x1080");
             if (!File.Exists(Utilities.Constants.INIT_SETTINGS) || !File.Exists(Utilities.Constants.INIT_COUNTRY))
             {
                 SetDefaults();
